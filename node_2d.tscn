@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cco8mj6o0knvn"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y32ns"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("NoiseTexture2D_y32ns")
