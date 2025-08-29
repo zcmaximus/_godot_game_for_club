@@ -13,3 +13,5 @@ noise = SubResource("FastNoiseLite_y32ns")
 position = Vector2(613.5, 344.5)
 scale = Vector2(2.41602, 1.3418)
 texture = SubResource("NoiseTexture2D_wtcfe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
