@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cco8mj6o0knvn"]
+[gd_scene load_steps=5 format=3 uid="uid://cco8mj6o0knvn"]
 
+[ext_resource type="Shader" uid="uid://dhu5fms4lacnj" path="res://shaders/ground.gdshader" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://durd6v7fug047" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dig6idcnfwc6g" path="res://icon.svg" id="2_yqjtg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbhrr"]
+shader = ExtResource("1_lnu2h")
 
 [node name="game" type="Node2D"]
 
@@ -9,6 +13,7 @@
 layer = -10
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_lbhrr")
 offset_right = 1151.0
 offset_bottom = 650.0
 color = Color(0, 0.619341, 0.330043, 1)
