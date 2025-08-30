@@ -8,6 +8,13 @@
 [node name="game" type="Node2D"]
 script = SubResource("GDScript_yqjtg")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1096.0
+offset_bottom = 621.0
+
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(519, 294)
 
