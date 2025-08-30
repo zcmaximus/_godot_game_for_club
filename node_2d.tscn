@@ -1,17 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://cco8mj6o0knvn"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_y32ns"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wtcfe"]
-noise = SubResource("FastNoiseLite_y32ns")
+[gd_scene format=3 uid="uid://cco8mj6o0knvn"]
 
 [node name="game" type="Node2D"]
 
-[node name="ground" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="ground"]
-position = Vector2(613.5, 344.5)
-scale = Vector2(2.41602, 1.3418)
-texture = SubResource("NoiseTexture2D_wtcfe")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
