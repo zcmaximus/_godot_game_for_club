@@ -1,8 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://durd6v7fug047"]
+[gd_scene load_steps=8 format=3 uid="uid://durd6v7fug047"]
 
 [ext_resource type="Script" uid="uid://ddwwklge3mb6n" path="res://scripts/player_code.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dig6idcnfwc6g" path="res://icon.svg" id="3_dqkch"]
-[ext_resource type="Texture2D" uid="uid://c5s3vp1tp25lr" path="res://why-did-yuuri-do-that-is-she-stupid-v0-v8lb00lu6zze1 (1).png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://b6b4q6ne87sxt" path="res://sprites/stickman spritesheet final.png" id="3_qhqgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(0, 0, 330, 330)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(330, 0, 330, 330)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
 animations = [{
@@ -16,11 +24,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_qhqgy")
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
 }],
 "loop": true,
 "name": &"running",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
@@ -31,7 +42,7 @@ script = ExtResource("1_g2els")
 SPEED = 450.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_dqkch")
 animation = &"running"
 
