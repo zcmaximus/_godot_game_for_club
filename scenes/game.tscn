@@ -14,8 +14,10 @@ script = SubResource("GDScript_yqjtg")
 layer = -30
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1114.0
-offset_bottom = 643.0
+offset_left = -110.0
+offset_top = -67.0
+offset_right = 1211.0
+offset_bottom = 696.0
 color = Color(0, 0.449426, 0.174788, 1)
 
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
@@ -34,3 +36,17 @@ texture = ExtResource("3_lnu2h")
 
 [node name="teto mob" parent="enemies" instance=ExtResource("4_lbhrr")]
 position = Vector2(388, 510)
+collision_layer = 2
+collision_mask = 2
+
+[node name="teto mob2" parent="enemies" instance=ExtResource("4_lbhrr")]
+position = Vector2(165, 510)
+disable_mode = 1
+collision_layer = 2
+collision_mask = 2
+
+[node name="teto mob3" parent="enemies" instance=ExtResource("4_lbhrr")]
+position = Vector2(572, 511)
+disable_mode = 1
+collision_layer = 2
+collision_mask = 2

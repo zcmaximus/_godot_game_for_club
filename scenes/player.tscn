@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://durd6v7fug047"]
+[gd_scene load_steps=11 format=3 uid="uid://durd6v7fug047"]
 
 [ext_resource type="Script" uid="uid://ddwwklge3mb6n" path="res://scripts/player_code.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bvvrlr6yxyj1" path="res://sprites/sprite_sheet.png" id="2_qhqgy"]
@@ -46,7 +46,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
-size = Vector2(99, 102)
+size = Vector2(99, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(89, 122)
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
@@ -58,7 +61,17 @@ sprite_frames = SubResource("SpriteFrames_dqkch")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1)
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_qlg0r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_qhqgy")
+debug_color = Color(0.985326, 0, 0.334876, 0.42)

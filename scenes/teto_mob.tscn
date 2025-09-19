@@ -7,6 +7,7 @@
 size = Vector2(97, 100)
 
 [node name="teto mob" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_8yuo1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
