@@ -10,8 +10,3 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * speed
 	move_and_slide()
 	
-	var overlapping_mobs = hurt_box.get_overlapping_bodies()
-	for mob in overlapping_mobs:
-		if mob.is_in_group("mobs") and mob != self:
-			add_collision_exception_with(mob)
-			print("collision")

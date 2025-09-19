@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://durd6v7fug047"]
+[gd_scene load_steps=12 format=3 uid="uid://durd6v7fug047"]
 
 [ext_resource type="Script" uid="uid://ddwwklge3mb6n" path="res://scripts/player_code.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bvvrlr6yxyj1" path="res://sprites/sprite_sheet.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://b6b4q6ne87sxt" path="res://sprites/stickman spritesheet final.png" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://bb5h8pxqyny0f" path="res://scenes/hurt_box.gd" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
@@ -67,11 +68,13 @@ shape = SubResource("RectangleShape2D_qlg0r")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="HurtBox" type="Area2D" parent="."]
-unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("4_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_qhqgy")
 debug_color = Color(0.985326, 0, 0.334876, 0.42)
+
+[connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]
