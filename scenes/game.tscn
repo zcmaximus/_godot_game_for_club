@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cco8mj6o0knvn"]
+[gd_scene load_steps=6 format=3 uid="uid://cco8mj6o0knvn"]
 
 [ext_resource type="PackedScene" uid="uid://durd6v7fug047" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dig6idcnfwc6g" path="res://icon.svg" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://c5s3vp1tp25lr" path="res://why-did-yuuri-do-that-is-she-stupid-v0-v8lb00lu6zze1 (1).png" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://detobhnbnqpb6" path="res://scenes/teto_mob.tscn" id="4_lbhrr"]
 
 [sub_resource type="GDScript" id="GDScript_yqjtg"]
 
@@ -28,3 +29,8 @@ texture = ExtResource("2_yqjtg")
 position = Vector2(259, 319)
 scale = Vector2(0.0400721, 0.0522645)
 texture = ExtResource("3_lnu2h")
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="teto mob" parent="enemies" instance=ExtResource("4_lbhrr")]
+position = Vector2(388, 510)
