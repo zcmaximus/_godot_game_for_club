@@ -3,8 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var SPEED = 300.0
 @onready var hurt_box: Area2D = $HurtBox
-@onready var label: Label = $CanvasLayer/Label
-
+@onready var label: Label = $Label
 
 var last_direction: Vector2 = Vector2.ZERO
 var health = 100
@@ -39,12 +38,12 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 	
 	print(health)
 	if(health <= 0):
-		print("you died")
+		var tween = create_tween()
 		label.show()
 		Engine.time_scale = 0.0
-		
 
 
 func _on_ready() -> void:
+
 	label.hide()
 	

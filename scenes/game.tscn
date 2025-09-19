@@ -23,6 +23,9 @@ offset_right = 1211.0
 offset_bottom = 696.0
 color = Color(0, 0.449426, 0.174788, 1)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+color = Color(0.666569, 0.666569, 0.666569, 1)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(260, 322)
 texture = ExtResource("2_yqjtg")
@@ -47,3 +50,8 @@ collision_layer = 2
 position = Vector2(572, 511)
 disable_mode = 1
 collision_layer = 2
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(859, 168)
+energy = 0.14
+max_distance = 100.0

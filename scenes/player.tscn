@@ -58,10 +58,7 @@ size = Vector2(89, 122)
 script = ExtResource("1_g2els")
 SPEED = 450.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 30
-
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="."]
 offset_left = -183.0
 offset_top = -199.0
 offset_right = 184.0
