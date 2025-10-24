@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ertb034dyhlc"]
+[gd_scene load_steps=5 format=3 uid="uid://ertb034dyhlc"]
 
 [ext_resource type="Script" uid="uid://bsu24s1y2omun" path="res://scenes/sword.gd" id="1_n355p"]
 [ext_resource type="Texture2D" uid="uid://ddx8sgulo0d55" path="res://sprites/sword-removebg-preview.png" id="1_ycbs3"]
+[ext_resource type="AudioStream" uid="uid://cuulr2273mgfy" path="res://446124__justinvoke__poofpuff.wav" id="3_s4ec8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycbs3"]
 size = Vector2(138, 20)
@@ -24,5 +25,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_ycbs3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_s4ec8")
+pitch_scale = 1.53
+attenuation = 3.4822
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

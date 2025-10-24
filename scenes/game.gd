@@ -13,9 +13,12 @@ func spawn_mob():
 func _on_timer_timeout() -> void:
 	spawn_mob()
 	times += 1
+	
 	if times == 5:
-		timer.wait_time = 1.0
+		timer.wait_time = 1.5
 	elif times == 20:
 		timer.wait_time = 1.0
 	elif times == 50:
 		timer.wait_time = 0.5
+	elif times == 100:
+		timer.wait_time = 0.2

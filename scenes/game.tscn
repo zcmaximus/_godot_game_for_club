@@ -18,6 +18,16 @@ script = ExtResource("1_lbhrr")
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(519, 294)
 
+[node name="Path2D" type="Path2D" parent="player"]
+position = Vector2(-562.487, -316.283)
+scale = Vector2(1.01854, 1.05461)
+curve = SubResource("Curve2D_iywne")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-143.01, -117.11)
+rotation = -0.00407879
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
 
@@ -44,16 +54,6 @@ texture = ExtResource("3_lnu2h")
 position = Vector2(859, 168)
 energy = 0.14
 max_distance = 100.0
-
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2(-43.487, -22.283)
-scale = Vector2(1.01854, 1.05461)
-curve = SubResource("Curve2D_iywne")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-unique_name_in_owner = true
-position = Vector2(-143.01, -117.11)
-rotation = -0.00407879
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

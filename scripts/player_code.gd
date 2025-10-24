@@ -15,7 +15,7 @@ func _ready() -> void:
 	sword.position = Vector2(125, 0)
 
 func _process(delta: float) -> void:
-	orbit_pivot.rotation += delta * 1.5
+	orbit_pivot.rotation += delta * 2
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
