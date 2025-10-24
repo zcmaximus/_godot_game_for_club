@@ -40,8 +40,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 
+
+func _on_ready() -> void:
+
+	label.hide()
+	
+
+
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	print("damage")
+	print("HurtBox triggered by:", body.name)
 	if body.is_in_group("enemies"):
 		health -= 10
 	
@@ -53,9 +61,3 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 		var tween = create_tween()
 		label.show()
 		Engine.time_scale = 0.0
-
-
-func _on_ready() -> void:
-
-	label.hide()
-	
