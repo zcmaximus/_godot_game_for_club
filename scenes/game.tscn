@@ -1,14 +1,19 @@
 [gd_scene load_steps=6 format=3 uid="uid://cco8mj6o0knvn"]
 
+[ext_resource type="Script" uid="uid://c2gf7sijy4u6q" path="res://scenes/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://durd6v7fug047" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dig6idcnfwc6g" path="res://icon.svg" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://c5s3vp1tp25lr" path="res://why-did-yuuri-do-that-is-she-stupid-v0-v8lb00lu6zze1 (1).png" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://detobhnbnqpb6" path="res://scenes/teto_mob.tscn" id="4_lbhrr"]
 
-[sub_resource type="GDScript" id="GDScript_yqjtg"]
+[sub_resource type="Curve2D" id="Curve2D_iywne"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -143.01, -117.11, 0, 0, 0, 0, 1301.13, -123, 0, 0, 0, 0, 1307, 737, 0, 0, 0, 0, -158.573, 737.982, 0, 0, 0, 0, -144.955, -119)
+}
+point_count = 5
 
 [node name="game" type="Node2D"]
-script = SubResource("GDScript_yqjtg")
+script = ExtResource("1_lbhrr")
 
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(519, 294)
@@ -35,23 +40,23 @@ position = Vector2(259, 319)
 scale = Vector2(0.0400721, 0.0522645)
 texture = ExtResource("3_lnu2h")
 
-[node name="enemies" type="Node" parent="."]
-
-[node name="teto mob" parent="enemies" instance=ExtResource("4_lbhrr")]
-position = Vector2(388, 510)
-collision_layer = 2
-
-[node name="teto mob2" parent="enemies" instance=ExtResource("4_lbhrr")]
-position = Vector2(165, 510)
-disable_mode = 1
-collision_layer = 2
-
-[node name="teto mob3" parent="enemies" instance=ExtResource("4_lbhrr")]
-position = Vector2(572, 511)
-disable_mode = 1
-collision_layer = 2
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(859, 168)
 energy = 0.14
 max_distance = 100.0
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-43.487, -22.283)
+scale = Vector2(1.01854, 1.05461)
+curve = SubResource("Curve2D_iywne")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-143.01, -117.11)
+rotation = -0.00407879
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

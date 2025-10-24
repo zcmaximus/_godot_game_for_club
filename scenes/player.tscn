@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://durd6v7fug047"]
+[gd_scene load_steps=13 format=3 uid="uid://durd6v7fug047"]
 
 [ext_resource type="Script" uid="uid://ddwwklge3mb6n" path="res://scripts/player_code.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bvvrlr6yxyj1" path="res://sprites/sprite_sheet.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://b6b4q6ne87sxt" path="res://sprites/stickman spritesheet final.png" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://ertb034dyhlc" path="res://scenes/sword.tscn" id="4_dqkch"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qhqgy"]
 font_size = 64
@@ -52,9 +53,10 @@ animations = [{
 size = Vector2(99, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(89, 122)
+size = Vector2(83, 114)
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 0
 script = ExtResource("1_g2els")
 SPEED = 450.0
 
@@ -78,13 +80,24 @@ shape = SubResource("RectangleShape2D_qlg0r")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0.5, 2)
+position = Vector2(-1.5, 3)
 shape = SubResource("RectangleShape2D_qhqgy")
 debug_color = Color(0.985326, 0, 0.334876, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -117.0
+offset_top = -109.0
+offset_right = 120.0
+offset_bottom = -82.0
+value = 100.0
+
+[node name="orbit_pivot" type="Node2D" parent="."]
+
+[node name="sword" parent="orbit_pivot" instance=ExtResource("4_dqkch")]
+position = Vector2(170, -1)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
