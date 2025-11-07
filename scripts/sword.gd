@@ -10,5 +10,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		audio_stream_player_2d.play()
 		body.queue_free()  # "Kill" the enemy
-		Score.ScoreCount += 1
+		Score.add_score(1)
 		print("Enemy defeated!")

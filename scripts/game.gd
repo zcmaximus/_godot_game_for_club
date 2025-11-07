@@ -2,6 +2,10 @@ extends Node2D
 
 var times = 0
 @onready var timer: Timer = $Timer
+@onready var retry_button: Button = $player/retry_button
+
+func _ready():
+	retry_button.hide()
 
 func spawn_mob():
 	var new_mob = preload("res://scenes/teto_mob.tscn").instantiate()
@@ -22,3 +26,11 @@ func _on_timer_timeout() -> void:
 		timer.wait_time = 0.5
 	elif times == 100:
 		timer.wait_time = 0.2
+
+
+
+func _on_retry_button_pressed() -> void:
+	var _current_scene = get_tree().current_scene
+	get_tree().reload_current_scene()
+	Score.ScoreCount = 0
+	Engine.time_scale = 1.0

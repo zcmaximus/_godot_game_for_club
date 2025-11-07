@@ -8,12 +8,16 @@ extends CharacterBody2D
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var sword: Node2D = $orbit_pivot/sword
 @onready var orbit_pivot: Node2D = $orbit_pivot
+@onready var high_score_label: Label = $high_score_label
+@onready var retry_button: Button = $retry_button
+
 
 var last_direction: Vector2 = Vector2.ZERO
 var health = 100
 
 func _ready() -> void:
 	sword.position = Vector2(125, 0)
+	high_score_label.hide()
 
 func _process(delta: float) -> void:
 	orbit_pivot.rotation += delta * 2
@@ -61,5 +65,8 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 	print(health)
 	
 	if(health <= 0):
+		high_score_label.text = "Highest Score = " + str(Score.high_score)
+		high_score_label.show()
+		retry_button.show()
 		label.show()
 		Engine.time_scale = 0.0
