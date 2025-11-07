@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://durd6v7fug047"]
+[gd_scene load_steps=14 format=3 uid="uid://durd6v7fug047"]
 
 [ext_resource type="Script" uid="uid://ddwwklge3mb6n" path="res://scripts/player_code.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bvvrlr6yxyj1" path="res://sprites/sprite_sheet.png" id="2_qhqgy"]
+[ext_resource type="FontFile" uid="uid://c4dvl1snjr10v" path="res://Font/Persona5MenuFontPrototype-Regular.ttf" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://b6b4q6ne87sxt" path="res://sprites/stickman spritesheet final.png" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://ertb034dyhlc" path="res://scenes/sword.tscn" id="4_dqkch"]
 
@@ -52,25 +53,46 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(75, 114)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
+radius = 27.5
+height = 124.0
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_g2els")
 SPEED = 450.0
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -488.0
+offset_top = -304.0
+offset_right = -251.0
+offset_bottom = -277.0
+value = 100.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -183.0
-offset_top = -199.0
-offset_right = 184.0
-offset_bottom = -87.0
+visibility_layer = 4
+offset_left = -215.0
+offset_top = -313.0
+offset_right = 213.0
+offset_bottom = -248.0
+theme_override_fonts/font = ExtResource("2_qlg0r")
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_qhqgy")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 213.0
+offset_top = -318.0
+offset_right = 572.0
+offset_bottom = -213.0
+theme_override_fonts/font = ExtResource("2_qlg0r")
+theme_override_font_sizes/font_size = 50
+text = "1
+"
+horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
@@ -84,20 +106,22 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(-1.5, 2)
-shape = SubResource("RectangleShape2D_qhqgy")
+shape = SubResource("CapsuleShape2D_dqkch")
 debug_color = Color(0.985326, 0, 0.334876, 0.42)
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -117.0
-offset_top = -109.0
-offset_right = 120.0
-offset_bottom = -82.0
-value = 100.0
 
 [node name="orbit_pivot" type="Node2D" parent="."]
 
 [node name="sword" parent="orbit_pivot" instance=ExtResource("4_dqkch")]
 position = Vector2(170, -1)
+
+[node name="HP_" type="Label" parent="."]
+offset_left = -561.0
+offset_top = -309.0
+offset_right = -467.0
+offset_bottom = -254.0
+theme_override_fonts/font = ExtResource("2_qlg0r")
+theme_override_font_sizes/font_size = 40
+text = "HP:"
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

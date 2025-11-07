@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ertb034dyhlc"]
 
-[ext_resource type="Script" uid="uid://bsu24s1y2omun" path="res://scenes/sword.gd" id="1_n355p"]
+[ext_resource type="Script" uid="uid://bsu24s1y2omun" path="res://scripts/sword.gd" id="1_n355p"]
 [ext_resource type="Texture2D" uid="uid://ddx8sgulo0d55" path="res://sprites/sword-removebg-preview.png" id="1_ycbs3"]
 [ext_resource type="AudioStream" uid="uid://cuulr2273mgfy" path="res://446124__justinvoke__poofpuff.wav" id="3_s4ec8"]
 

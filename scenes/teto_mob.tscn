@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://beq40o7ewi04f" path="res://scripts/teto_mob.gd" id="1_8yuo1"]
 [ext_resource type="Texture2D" uid="uid://qx7wgef20iau" path="res://sprites/enemyteto-Photoroom.png" id="2_v3egw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p22ab"]
-size = Vector2(97, 100)
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3egw"]
+radius = 45.5
 
 [node name="teto mob" type="CharacterBody2D"]
 collision_layer = 2
@@ -12,7 +12,7 @@ script = ExtResource("1_8yuo1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_p22ab")
+shape = SubResource("CircleShape2D_v3egw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.4, -0.613691)

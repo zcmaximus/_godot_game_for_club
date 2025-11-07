@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var scoreLabel: Label = $Score
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var SPEED = 300.0
 @onready var hurt_box: Area2D = $HurtBox
@@ -16,8 +17,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	orbit_pivot.rotation += delta * 2
+	
+	scoreLabel.text = "Score: " + str(Score.ScoreCount)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
 	
 	animated_sprite_2d.flip_h = false
@@ -58,6 +61,5 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 	print(health)
 	
 	if(health <= 0):
-		var tween = create_tween()
 		label.show()
 		Engine.time_scale = 0.0
